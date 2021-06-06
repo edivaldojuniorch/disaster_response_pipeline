@@ -76,8 +76,21 @@ def load_data(messages_filepath, categories_filepath):
 
 
 def clean_data(df):
+    """
+    Defined to remove the duplicated values from the DataFrame loded.
 
-    pass
+    INPUT:
+        df:Raw Pandas DataFrame defined in load process
+
+    OUTPUT:
+        df:Cleaned Pandas DataFrame from duplicated value
+
+    """
+    
+    # drop duplicates
+    df = df.drop_duplicates()
+
+    return df
 
 
 def save_data(df, database_filename):
