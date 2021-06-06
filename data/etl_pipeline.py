@@ -93,9 +93,25 @@ def clean_data(df):
     return df
 
 
+
 def save_data(df, database_filename):
+    """
+    Save data to a SQLite data base addressed by filename
+
+    INPUT:
+        df: Pandas DataFrame ready to get its data loaded to DataBase
+        database_filename: SQLiter filename to recieve the data loaded on df
+    OUTPUT:
+        none
+
+    """
+    # load to database
+    engine = create_engine('sqlite:///' + database_filename)
+    df.to_sql('InsertTableName', engine, index=False)
 
     pass  
+
+
 
 
 def main():
